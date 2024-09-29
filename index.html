@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chat</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			width: 100%;
+			height: 100vh;
+			position: relative;
+			background: #d2d2d2;
+			display: flex;
+			flex-direction: column;
+			justify-content: stretch;
+		}
+
+		body::-webkit-scrollbar {
+			display: block;
+			background-color: #1e1e1e;
+			width: 10px;
+		}
+
+		body::-webkit-scrollbar-thumb {
+			background: #bebebe;
+			border-radius: 10px;
+			position: relative;
+		}
+
+		.messageRight {
+			width: 100%;
+			display: flex;
+			justify-content: end;
+			margin-bottom: 5px;
+			position: relative;
+		}
+
+		.messageLeft {
+			width: 100%;
+			display: flex;
+			justify-content: start;
+			margin-bottom: 5px;
+			position: relative;
+		}
+
+		.messageRight span {
+			font-size: 15px;
+			font-family: system-ui;
+			font-weight: 500;
+			color: #000;
+			background: #12da00;
+			padding: 12px 30px;
+			margin-right: 10px;
+			border-radius: 5px;
+			max-width: 500px;
+			overflow-x: scroll;
+			box-shadow: 2px 2px 4px black;
+
+		}
+
+		.messageLeft span {
+			font-size: 15px;
+			font-family: system-ui;
+			font-weight: 500;
+			color: #000;
+			background: #fff;
+			padding: 12px 30px;
+			margin-left: 10px;
+			border-radius: 5px;
+			max-width: 500px;
+			overflow-x: scroll;
+			box-shadow: 2px 2px 4px black;
+		}
+
+		.messageRight span::-webkit-scrollbar, .messageLeft span::-webkit-scrollbar {
+			display: block;
+			background-color: #00000000;
+			height: 5px;
+		}
+
+		.messageRight span::-webkit-scrollbar-thumb, .messageLeft span::-webkit-scrollbar-thumb {
+			background: #9b9b9ba9;
+			border-radius: 50px;
+			cursor: pointer;
+		}
+
+		#content1 {
+			margin-top: 80px;
+		}
+
+		#write {
+			width: 100%;
+			height: 65px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: #8e8e8e;
+			position: fixed;
+			z-index: 10;
+		}
+
+		#textInput {
+			width: 700px;
+			margin: 0 90px;
+			padding-left: 20px;
+			padding-top: 10px;
+			font-size: 18px;
+			font-family: system-ui;
+			font-weight: 500;
+			background: transparent;
+			border: none;
+			outline: none;
+			color: #000;
+			resize: none;
+		}
+
+		#textInput::placeholder{
+			color: #000;
+			font-weight: 400;
+		}
+
+		#textInput::-webkit-scrollbar {
+			display: block;
+			background-color: #545454;
+			width: 5px;
+		}
+
+		#textInput::-webkit-scrollbar-thumb {
+			background: #727272;
+			border-radius: 50px;
+			cursor: pointer;
+		}
+
+		#write button {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			font-size: 30px;
+			font-weight: 600;
+			font-family: system-ui;
+			cursor: pointer;
+			color: #fff;
+			background: #00c700;
+			border: none;
+			padding-bottom: 5px;
+		}
+
+		#write button:hover {
+			background: #12da00;
+		}
+
+		p {
+			color: #000;
+			position: absolute;
+			bottom: 0;
+			font-size: 10px;
+			font-family: system-ui;
+			font-weight: 500;
+		}
+		@media screen and (min-width: 300px) and (max-width: 720px) {
+			#textInput {
+				margin: 0px 8px;
+				width: 250px;
+			}
+
+			.messageLeft span,
+			.messageRight span {
+				max-width: 180px;
+			}
+
+			#write button {
+				width: 50px;
+				height: 50px;
+				font-size: 28px;
+			}
+		}
+		@media screen and (min-width: 721px) and (max-width: 1010px) {
+			#textInput {
+				width: 500px;
+				margin: 0px 50px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="write">
+		<button onclick="leftsend()">&leftarrow;</button>
+		<textarea rows="2" id="textInput" placeholder="Message"></textarea>
+		<button onclick="rightsend()">&rightarrow;</button>
+	</div>
+	<script src="script.js"></script>
+</body>
+
+</html>
